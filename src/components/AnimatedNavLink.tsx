@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 
-const NavLinkBox = styled(animated.div)`
+const NavLinkBox = styled.div`
   padding: 10px;
   a {
     color: #CACCCE;
@@ -27,17 +26,10 @@ interface AnimatedLink {
 }
 
 const AnimatedNavLink: React.FC<AnimatedLink> = ({ to, children }) => {
-  const [click, setClick] = useState(false);
-  const springProps = useSpring({   
-  });
-
-  const startAnimation = () => { 
-    setClick(!click)
-  };
 
   return ( 
-    <NavLinkBox style={springProps}>
-      <NavLink to={to} onClick={startAnimation}>{children}</NavLink>
+    <NavLinkBox>
+      <NavLink to={to}>{children}</NavLink>
     </NavLinkBox>
   );
 }
