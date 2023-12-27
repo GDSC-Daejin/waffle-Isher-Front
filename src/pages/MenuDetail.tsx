@@ -4,6 +4,7 @@ const MenuDetailContainer = styled.div`
   
 `
 
+
 const MenuDetail = () => {
   return ( 
     <MenuDetailContainer>
