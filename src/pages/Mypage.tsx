@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Test from '../imgs/test.jpeg';
 import MyRecipeBox from "../components/MyRecipeBox";
 
+import Pixel from '../imgs/pixelBackground.png';
+
 const MypageContainer = styled.div`
   
 `
@@ -13,6 +15,7 @@ const MypageTopBox = styled.div`
   justify-content: center;
   align-items: center;
   height: 200px;
+  background: url(${Pixel}) no-repeat center/cover;
   background-color: antiquewhite;
   img {
     width: 100px;
@@ -29,6 +32,7 @@ const MypageCountBox = styled.div`
   padding: 20px 0px;
   background-color: white;
   text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   h2 {
     margin-bottom: 10px;
   }
@@ -38,7 +42,7 @@ const MypageRecipeBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
   margin-bottom: 100px;
 `
 

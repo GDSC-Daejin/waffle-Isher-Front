@@ -8,7 +8,7 @@ import React from "react";
 
 const HomeMBox = styled(Link)`
   display: flex;
-  margin-bottom: 15px;
+  margin: 10px;
   padding: 10px;
   background-color: white;
   border-radius: 15px;

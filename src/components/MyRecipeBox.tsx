@@ -10,6 +10,7 @@ const MyRecipeContainer = styled.div`
   margin-bottom: 20px;
   background-color: white;
   border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 `
 
 const MyRecipeLeft = styled.div`

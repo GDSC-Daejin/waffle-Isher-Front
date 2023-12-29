@@ -1,29 +1,35 @@
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper/modules";
-import styled from "styled-components";
 import { Link } from 'react-router-dom';
+import styled from "styled-components";
 
 import 'swiper/css';
-import React from 'react';
+import FoodTest from '../imgs/food1.jpg';
 
 const CombinationContainer = styled.div`
-  margin: 10px;
-  margin-bottom: 40px;
+  margin: 10px 0px;
+  padding: 5px 20px;
+  border-top: 1px solid black;
   h1 {
     margin: 10px 0px;
     font-size: 22px;
   }
   .slide {
     p {
-      margin-top: 10px;
+      margin: 10px 0px 20px;
       text-align: center;
       font-size: 16px;
     }
     .slideBox {
       position: relative;
-      height: 70px;
+      width: 100%;
+      height: 90px;
+      margin: 2px 0px;
       background-color: white;
       border-radius: 10px;
+      object-fit: cover;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     }
   }
 
@@ -47,14 +53,14 @@ const MainCombination:React.FC<CombinationData> = ({combinationName}) => {
         }}
         breakpoints={{
           300: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 30
           },
-          900: {
+          700: {
             slidesPerView: 5,
             spaceBetween: 40
           },
-          1200: {
+          900: {
             slidesPerView: 6,
             spaceBetween: 50
           }
@@ -62,40 +68,54 @@ const MainCombination:React.FC<CombinationData> = ({combinationName}) => {
       >
         <SwiperSlide className='slide'>
           <Link to={'/menuDetail'}>
-            <div className='slideBox'></div>
+            <img className='slideBox' src={FoodTest} alt='푸드 이미지'>
+            </img>
           </Link>
           <p>조합 이름</p>
         </SwiperSlide>
         <SwiperSlide className='slide'>
           <Link to={'/menuDetail'}>
-            <div className='slideBox'></div>
+            <img className='slideBox' src={FoodTest} alt='푸드 이미지'>
+            </img>
           </Link>
           <p>조합 이름</p>
         </SwiperSlide>
         <SwiperSlide className='slide'>
           <Link to={'/menuDetail'}>
-            <div className='slideBox'></div>
+            <img className='slideBox' src={FoodTest} alt='푸드 이미지'>
+            </img>
           </Link>
           <p>조합 이름</p>
         </SwiperSlide>
         <SwiperSlide className='slide'>
           <Link to={'/menuDetail'}>
-            <div className='slideBox'></div>
+            <img className='slideBox' src={FoodTest} alt='푸드 이미지'>
+            </img>
           </Link>
           <p>조합 이름</p>
         </SwiperSlide>
         <SwiperSlide className='slide'>
           <Link to={'/menuDetail'}>
-            <div className='slideBox'></div>
+            <img className='slideBox' src={FoodTest} alt='푸드 이미지'>
+            </img>
           </Link>
           <p>조합 이름</p>
         </SwiperSlide>
         <SwiperSlide className='slide'>
           <Link to={'/menuDetail'}>
-            <div className='slideBox'></div>
+            <img className='slideBox' src={FoodTest} alt='푸드 이미지'>
+            </img>
           </Link>
           <p>조합 이름</p>
         </SwiperSlide>
+        <SwiperSlide className='slide'>
+          <Link to={'/menuDetail'}>
+            <img className='slideBox' src={FoodTest} alt='푸드 이미지'>
+            </img>
+          </Link>
+          <p>조합 이름</p>
+        </SwiperSlide>
+
       </Swiper>
     </CombinationContainer>
   );

@@ -8,6 +8,9 @@ const HomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
+`
+
+const HomeTopBox = styled.div`
   padding: 10px;
 `
 
@@ -19,19 +22,24 @@ const HomeListContainer = styled.div`
 `
 
 const HomeMenuContainer = styled.div`
-  width: 95%;
-  margin: 30px 0px 100px;
+  width: 100%;
+  margin: 30px 0px 75px;
+  padding: 20px 0px;
+  border-radius: 15px 15px 0px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.2) 0px 1px 10px 1px;
 `
 
 const Home = () => {
   return ( 
     <HomeContainer>
-      <SearchInput/>
-      <HomeListContainer>
-        <HomeListBox>국물류</HomeListBox>
-        <HomeListBox>간식&#47;스낵류</HomeListBox>
-        <HomeListBox>음료&#47;주류</HomeListBox>
-      </HomeListContainer>
+      <HomeTopBox>
+        <SearchInput/>
+        <HomeListContainer>
+          <HomeListBox>국물류</HomeListBox>
+          <HomeListBox>간식&#47;스낵류</HomeListBox>
+          <HomeListBox>음료&#47;주류</HomeListBox>
+        </HomeListContainer>
+      </HomeTopBox>
       <HomeMenuContainer>
         <HomeMenuBox/>
         <HomeMenuBox/>
