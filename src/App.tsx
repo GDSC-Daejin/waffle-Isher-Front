@@ -10,6 +10,7 @@ import Common from './pages/Common';
 import Mypage from './pages/Mypage';
 import Great from './pages/Great';
 import Main from './pages/Main';
+import MenuDetail from './pages/MenuDetail';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/search" element={<Search/>}/>
           <Route path="/great" element={<Great/>}/>
           <Route path="/mypage" element={<Mypage/>}/>
+          <Route path="/menuDetail" element={<MenuDetail/>}/>
         </Route>
       </Routes>
     </RecoilRoot>

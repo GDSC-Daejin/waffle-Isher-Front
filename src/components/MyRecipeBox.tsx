@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Food from '../imgs/food.jpeg';
+import { Link } from "react-router-dom";
 
 const MyRecipeContainer = styled.div`
   display: flex;
@@ -19,8 +20,10 @@ const MyRecipeLeft = styled.div`
     border-radius: 20px 0px 0px 20px;
   }
 `
-const MyRecipeRight = styled.div`
-
+const MyRecipeRight = styled(Link)`
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 `
 
 const MyRecipeDeleteBox = styled.div`
@@ -30,6 +33,7 @@ const MyRecipeDeleteBox = styled.div`
   width: 120px;
   border-radius: 0px 20px 20px 0px;
   background-color: #FF6465;
+  cursor: pointer;
   p {
     padding: 5px;
     font-size: 16px;
@@ -62,7 +66,7 @@ const MyRecipeBox = () => {
       <MyRecipeLeft>
         <img src={Food} alt="음식사진" />
       </MyRecipeLeft>
-      <MyRecipeRight>
+      <MyRecipeRight to={'/menuDetail'}>
         <MyRecipeRightTop>
           <p>세븐 일레븐에서 어쩌구 저쩌구 하면 감칠맛과 매운맛을...</p>
         </MyRecipeRightTop>

@@ -4,6 +4,7 @@ import { BiHeartCircle } from "react-icons/bi";
 import Food from '../imgs/food.jpeg';
 import User from '../imgs/test.jpeg';
 import { Link } from "react-router-dom";
+import React from "react";
 
 const HomeMBox = styled(Link)`
   display: flex;
@@ -67,6 +68,11 @@ const IntroBox = styled.div`
 `
 
 const HomeMenuBox = () => {
+
+  const handleGoodClick = (e:React.MouseEvent<MouseEvent>) => {
+    e.preventDefault();
+  }
+  
   return ( 
     <HomeMBox to={'/'}>
       <HomeMLeftBox>
@@ -83,7 +89,7 @@ const HomeMenuBox = () => {
           <h2>난이도 : 4</h2>
           <h2>가격 : 8700원</h2>
         </IntroBox>
-        <BiHeartCircle className="heart" size={30}/>
+        <BiHeartCircle className="heart" onClick={handleGoodClick} size={30}/>
       </HomeMRightBox>
     </HomeMBox>
   );
