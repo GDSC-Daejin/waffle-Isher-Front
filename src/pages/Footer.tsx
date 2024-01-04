@@ -1,6 +1,6 @@
 import AnimatedNavLink from "../components/AnimatedNavLink";
 
-import { IoHome, IoSearch, IoStorefront } from "react-icons/io5";
+import { IoHome, IoStorefront } from "react-icons/io5";
 import { FaRegUserCircle, FaHeart } from "react-icons/fa";
 import styled from "styled-components";
 
@@ -20,7 +20,6 @@ const Footer = () => {
   return ( 
     <FooterContainer>
       <AnimatedNavLink to="/"><IoHome/></AnimatedNavLink>
-      <AnimatedNavLink to="/search"><IoSearch/></AnimatedNavLink>
       <AnimatedNavLink to="/home"><IoStorefront/></AnimatedNavLink>
       <AnimatedNavLink to="/great"><FaHeart/></AnimatedNavLink>
       <AnimatedNavLink to="/mypage"><FaRegUserCircle/></AnimatedNavLink>
