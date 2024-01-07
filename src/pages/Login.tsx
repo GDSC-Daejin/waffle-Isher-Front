@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useState } from "react";
+import { useMutation } from "react-query";
 import styled from "styled-components";
 
 const LoginContainer = styled.div`
@@ -78,13 +80,13 @@ const SignUpPasswordBox = styled.div`
 `
 
 interface LoginUser {
-  username: string;
+  memberId: string;
   password: string;
 }
 
 const Login = () => {
   const [user, setUser] = useState<LoginUser>({
-    username: '',
+    memberId: '',
     password: ''
   })
 
@@ -95,11 +97,22 @@ const Login = () => {
     }))
   }
 
-  const handleLegister = () => {
-    if (!user.username || !user.password) {
+  const loginMutation = useMutation((user:LoginUser) => 
+  axios.post('http://ec2-43-201-12-132.ap-northeast-2.compute.amazonaws.com:8080/login', user), {
+    mutationKey: 'loginUser',
+    onSuccess: e => console.log(e.data),
+    onError: e => console.log(e)
+  }
+)
+
+  const handleLegister = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!user.memberId || !user.password) {
       alert("모든 정보를 입력해 주세요.");
       return;
     }
+    const loginUser = user;
+    loginMutation.mutate(loginUser);
   }
 
   return ( 
@@ -108,8 +121,8 @@ const Login = () => {
       <SignUpForm>
         <h1>안녕하세요 &#58;&#41;<br/>편의점 마술사 입니다.</h1>
         <SignUpNameBox>
-        <label htmlFor="username">아이디</label>
-          <input type="text" id="username" name="username" value={user.username} onChange={handleOnChangeUser} placeholder="아이디"/>
+        <label htmlFor="memberId">아이디</label>
+          <input type="text" id="memberId" name="memberId" value={user.memberId} onChange={handleOnChangeUser} placeholder="아이디"/>
         </SignUpNameBox>
         <SignUpPasswordBox>
         <label htmlFor="password">비밀번호</label>

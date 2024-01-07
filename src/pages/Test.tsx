@@ -93,12 +93,12 @@ const SignUpEmailBox = styled.div`
 `
 
 interface SignUpUser {
-  username: string;
-  nickname: string;
-  phonenumber: string;
-  email: string;
-  password: string;
-  checkpassword: string;
+  memberId: string;
+  memberName: string;
+  memberEmail: string;
+  memberNickname: string;
+  memberPhonenumber: string; 
+  memberPassword: string;
 }
 
 const Test = () => {
@@ -106,12 +106,12 @@ const Test = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState<SignUpUser>({
-    username: '',
-    nickname: '',
-    phonenumber: '',
-    email: '',
-    password: '',
-    checkpassword: ''
+    memberId: '',
+    memberName: '',
+    memberEmail: '',
+    memberNickname: '',
+    memberPhonenumber: '',
+    memberPassword: '',
   })
 
   const testMutation = useMutation((newUser:SignUpUser) => 
@@ -147,25 +147,29 @@ const Test = () => {
       </SignUpTop>
       <SignUpForm>
         <SignUpNameBox>
-          <label htmlFor="username">아이디</label>
-          <input type="text" id="username" name="username" value={user.username} onChange={handleOnChangeUser} placeholder="아이디"/>
+          <label htmlFor="memberId">아이디</label>
+          <input type="text" id="memberId" name="memberId" value={user.memberId} onChange={handleOnChangeUser} placeholder="아이디"/>
         </SignUpNameBox>
         <SignUpNickNameBox>
-          <label htmlFor="nickname">닉네임</label>
-          <input type="text" id="nickname" name="nickname" value={user.nickname} onChange={handleOnChangeUser} placeholder="닉네임"/>
+          <label htmlFor="memberName">이름</label>
+          <input type="text" id="memberName" name="memberName" value={user.memberName} onChange={handleOnChangeUser} placeholder="이름"/>
+        </SignUpNickNameBox>
+        <SignUpNickNameBox>
+          <label htmlFor="memberNickname">닉네임</label>
+          <input type="text" id="memberNickname" name="memberNickname" value={user.memberNickname} onChange={handleOnChangeUser} placeholder="닉네임"/>
         </SignUpNickNameBox>
         <SignUpPasswordBox>
-          <label htmlFor="password">비밀번호</label>
-          <input type="password" id="password" name="password" value={user.password} autoComplete="current-password" onChange={handleOnChangeUser} placeholder="비밀번호"/>
-          <input type="password" name="checkpassword" value={user.checkpassword} autoComplete="current-password" onChange={handleOnChangeUser} placeholder="비밀번호 확인"/>
+          <label htmlFor="memberPassword">비밀번호</label>
+          <input type="password" id="memberPassword" name="memberPassword" value={user.memberPassword} autoComplete="current-password" onChange={handleOnChangeUser} placeholder="비밀번호"/>
+          
         </SignUpPasswordBox>
         <SignUpPhoneNumberBox>
-          <label htmlFor="phonenumber">핸드폰번호</label>
-          <input type="text" id="phonenumber" name="phonenumber" value={user.phonenumber} onChange={handleOnChangeUser} placeholder="- 없이 입력해 주세요."/>
+          <label htmlFor="memberPhonenumber">핸드폰번호</label>
+          <input type="text" id="memberPhonenumber" name="memberPhonenumber" value={user.memberPhonenumber} onChange={handleOnChangeUser} placeholder="- 없이 입력해 주세요."/>
         </SignUpPhoneNumberBox>
         <SignUpEmailBox>
-          <label htmlFor="email">이메일</label>
-          <input type="text" id="email" name="email" value={user.email} onChange={handleOnChangeUser} placeholder="이메일"/>
+          <label htmlFor="memberEmail">이메일</label>
+          <input type="text" id="memberEmail" name="memberEmail" value={user.memberEmail} onChange={handleOnChangeUser} placeholder="이메일"/>
         </SignUpEmailBox>
       </SignUpForm>
       <button className="registerbutton" onClick={handleLegister}>가입하기</button>
