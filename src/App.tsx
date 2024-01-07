@@ -12,6 +12,7 @@ import Main from './pages/Main';
 import MenuDetail from './pages/MenuDetail';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/great" element={<Great/>}/>
           <Route path="/mypage" element={<Mypage/>}/>
           <Route path="/menuDetail" element={<MenuDetail/>}/>
+          <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<SignUp/>}/>
         </Route>
