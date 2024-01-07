@@ -43,7 +43,7 @@ const RegisterForm = styled.form`
     background-color: #d2d2d2;
   }
   h1 {
-    line-height: 28px;
+    line-height: 2rem;
     padding-left: 0;
   }
   a {
@@ -73,6 +73,16 @@ const Register = () => {
   })
 
   const handleOnChangeUser = (e:React.ChangeEvent<HTMLInputElement>)=> {
+
+    // menuDifficulty input 의 보안을 위한 코드들
+    const { name, value } = e.target;
+    const validNumber = /^[1-5]$/;
+    if (name === "menuDifficulty" && value !== "" && !validNumber.test(value)) {
+      alert('1~5점 까지 입력하실 수 있습니다.')
+      return;
+    }
+
+
     setRegister(prevUser => ({
       ...prevUser,
       [e.target.name] : e.target.value
@@ -82,7 +92,7 @@ const Register = () => {
   return ( 
     <RegisterContainer>
       <RegisterForm>
-        <h1>안녕하세요 &#58;&#41;<br/>편의점 마술사 입니다.</h1>
+        <h1>안녕하세요 &#58;&#41;<br/>조합을 등록해 보세요.</h1>
           <RegisterBox>
           <label htmlFor="menuName">조합 이름</label>
             <input type="text" id="menuName" name="menuName" value={register.menuName} onChange={handleOnChangeUser} placeholder="조합의 이름을 알려주세요."/>
@@ -93,11 +103,11 @@ const Register = () => {
           </RegisterBox>
           <RegisterBox>
           <label htmlFor="menuTime">조합 시간</label>
-            <input type="text" id="menuTime" name="menuTime" value={register.menuTime} onChange={handleOnChangeUser} placeholder="조합을 만드는데 걸리는 시간(분) 을 알려주세요."/>
+            <input type="text" id="menuTime" name="menuTime" value={register.menuTime} onChange={handleOnChangeUser} placeholder="조합의 요리시간(분) 을 알려주세요."/>
           </RegisterBox>
           <RegisterBox>
           <label htmlFor="menuDifficulty">조합 난이도</label>
-            <input type="text" id="menuDifficulty" name="menuDifficulty" value={register.menuDifficulty} onChange={handleOnChangeUser} placeholder="조합의 난이도를 알려주세요."/>
+            <input type="text" id="menuDifficulty" name="menuDifficulty" value={register.menuDifficulty} onChange={handleOnChangeUser} placeholder="조합의 난이도를 알려주세요. (1 ~ 5)"/>
           </RegisterBox>
           <RegisterBox>
           <label htmlFor="menuPrice">조합 비용</label>

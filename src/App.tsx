@@ -13,6 +13,8 @@ import MenuDetail from './pages/MenuDetail';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Error from './pages/ErrorPage';
+import Test from './pages/Test';
 
 function App() {
 
@@ -28,6 +30,8 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/test" element={<Test/>}/>
+          <Route path="*" element={<Error/>}/>
         </Route>
       </Routes>
     </RecoilRoot>
