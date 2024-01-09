@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useMutation } from "react-query";
 import styled from "styled-components";
+import Cookies from 'js-cookie';
 
 const LoginContainer = styled.div`
   display: flex;
@@ -97,13 +98,21 @@ const Login = () => {
     }))
   }
 
-  const loginMutation = useMutation((user:LoginUser) => 
-  axios.post('http://ec2-43-201-12-132.ap-northeast-2.compute.amazonaws.com:8080/login', user), {
+  const loginMutation = useMutation((user: LoginUser) => {
+    const formData = new FormData();
+    
+    formData.append('memberId', user.memberId);
+    formData.append('password', user.password);
+  
+    return axios.post('http://ec2-43-201-12-132.ap-northeast-2.compute.amazonaws.com:8080/login', formData);
+  }, {
     mutationKey: 'loginUser',
-    onSuccess: e => console.log(e.data),
-    onError: e => console.log(e)
-  }
-)
+    onSuccess: (response) => {
+      Cookies.set('userToken', response.data.slice(37), { expires: 7 });
+    },
+    onError: (error) => console.log(error),
+  });
+  
 
   const handleLegister = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

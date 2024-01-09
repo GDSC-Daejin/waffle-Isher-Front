@@ -131,7 +131,7 @@ const SignUp = () => {
   };
 
   const handleNameBlur = () => {
-    setNameTest(validateName(user.memberName));
+    setNameTest(validateName(user.memberId));
   };
   const handlePasswordBlur = () => {
     setPasswordTest(validatePassword(user.memberPassword));
@@ -162,10 +162,14 @@ const SignUp = () => {
     }))
   }
 
+
   const signupMutation = useMutation((newUser:SignUpUser) => 
     axios.post('http://ec2-43-201-12-132.ap-northeast-2.compute.amazonaws.com:8080/signin', newUser), {
       mutationKey: 'createUser',
-      onSuccess: e => console.log(e),
+      onSuccess: () => {
+        alert('회원가입에 성공하셨습니다.')
+        navigate('/login')
+      },
       onError: e => console.log(e)
     }
   )
@@ -195,14 +199,14 @@ const SignUp = () => {
           <input type="text" id="memberNickname" name="memberNickname" value={user.memberNickname} onChange={handleOnChangeUser} placeholder="닉네임"/>
         </SignUpNickNameBox>
         <SignUpPasswordBox>
-          <label htmlFor="memberPasword">비밀번호</label>
-          <input type="password" id="memberPasword" name="memberPasword" value={user.memberPassword} autoComplete="current-password" onChange={handleOnChangeUser} placeholder="비밀번호" onBlur={handlePasswordBlur}/>
-          <input type="password" name="checkpassword" value={user.checkPassword} autoComplete="current-password" onChange={handleOnChangeUser} placeholder="비밀번호 확인"/>
+          <label htmlFor="memberPassword">비밀번호</label>
+          <input type="password" id="memberPassword" name="memberPassword" value={user.memberPassword} autoComplete="current-password" onChange={handleOnChangeUser} placeholder="비밀번호" onBlur={handlePasswordBlur}/>
+          <input type="password" name="checkPassword" value={user.checkPassword} autoComplete="current-password" onChange={handleOnChangeUser} placeholder="비밀번호 확인"/>
           {passwordTest ? '' : <p>영문 대문자와 소문자, 숫자, 특수문자 중<br/> 2가지 이상을 조합하여 6 ~ 20자로 입력해 주세요.</p>}
         </SignUpPasswordBox>
         <SignUpPhoneNumberBox>
-          <label htmlFor="memberPassword">핸드폰번호</label>
-          <input type="text" id="memberPassword" name="memberPassword" value={user.memberPassword} onChange={handleOnChangeUser} placeholder="- 없이 입력해 주세요."/>
+          <label htmlFor="memberPhonenumber">핸드폰번호</label>
+          <input type="text" id="memberPhonenumber" name="memberPhonenumber" value={user.memberPhonenumber} onChange={handleOnChangeUser} placeholder="- 없이 입력해 주세요."/>
         </SignUpPhoneNumberBox>
         <SignUpEmailBox>
           <label htmlFor="memberEmail">이메일</label>
