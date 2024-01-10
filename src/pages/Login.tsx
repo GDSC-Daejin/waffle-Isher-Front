@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useMutation } from "react-query";
 import styled from "styled-components";
 import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -86,6 +87,8 @@ interface LoginUser {
 }
 
 const Login = () => {
+
+  const navigate = useNavigate();
   const [user, setUser] = useState<LoginUser>({
     memberId: '',
     password: ''
@@ -108,7 +111,9 @@ const Login = () => {
   }, {
     mutationKey: 'loginUser',
     onSuccess: (response) => {
-      Cookies.set('userToken', response.data.slice(37), { expires: 7 });
+      console.log(response.data)
+      Cookies.set('Cookie', response.data.slice(37), { expires: 7 });
+      navigate('/home')
     },
     onError: (error) => console.log(error),
   });
